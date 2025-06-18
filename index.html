@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank you. Yamaguchi</title>
+  <style>
+    body {
+      background: no-repeat top center url(bg.jpeg);
+      background-size: cover;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      color: #fff;
+      font-weight: 600;
+      font-family: "SF Pro JP", "SF Pro Text", "SF Pro Icons", "Hiragino Kaku Gothic Pro",
+        "ヒラギノ角ゴ Pro W3", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+
+    }
+
+    .blur {
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      -webkit-backdrop-filter: blur(40px);
+      backdrop-filter: blur(40px);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 70%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 70%);
+    }
+
+    .message {
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      left: 0;
+      margin: 2rem;
+    }
+
+    .message h1 {
+      font-size: 0.75rem;
+      color: #ffffff99;
+    }
+
+    .message article p {
+      font-size: 1rem;
+      margin: 0.75rem 0;
+    }
+
+    .message button {
+      margin: 0.5rem 0 0;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      background-color: #ffffff22;
+      color: #ffffff7f;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+    }
+    
+    .modal-content div {
+        margin: 1.5rem 0;
+    }
+
+    .modal-content div h2 {
+        font-size: 0.75rem;
+        color: #ffffff99;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .modal-content div p {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    /* 480px 이하 모바일에서만 적용되는 스타일 */
+    @media (max-width: 480px) {
+      .message {
+        height: 70vh;
+        width: calc(100% - 2rem);
+        margin: 1rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-right: 1rem;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+        mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+        scrollbar-width: none;
+      }
+
+
+      .message::-webkit-scrollbar {
+        display: none;
+      }
+
+      .message button {
+        margin: 0.5rem 0 1rem 0;
+      }
+    }
+
+    /* 모달 스타일 */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      backdrop-filter: blur(30px);
+    }
+
+    .modal-content {
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .modal-content button {
+      margin: 0.5rem 0 0;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      background-color: #ffffff22;
+      color: #ffffff7f;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+    }
+  </style>
+</head>
+<body>
+  <section class="message">
+    <h1>To. 山口詩織さんへ</h1>
+    <article>
+      <p>これまで本当にお疲れさまでした。<br>山口さんとご一緒にお仕事できたこと、心から感謝しております。</p>
+      <p>いつも明るい笑顔と前向きな姿勢で接してくださり、本当にたくさんの助けをいただきました。<br>また、全力で取り組む姿勢からは、前向きなエネルギーをもらうことも多かったです。<br>ABC Designチームを代表して、心より感謝の気持ちをお伝えします。</p>
+      <p>これからの道のりも、山口さんらしく幸せに満ちたものであるよう願っています。<br>このご縁がここで終わるとは思っていません。<br>韓国と日本という距離はありますが、ご縁があれば、またどこかで素敵な形で再会できると信じています。</p>
+      <p>もし韓国にいらっしゃることがあれば、ぜひご連絡ください。<br>いつでもお気軽に、下記の連絡先までご連絡いただければ嬉しいです。</p>
+      <p>山口さんの素敵な笑顔を、私はきっと忘れません。本当にありがとうございました。</p>
+    </article>
+    <h1>From. ABC Design</h1>
+    <button id="openModal">Contact JEANS</button>
+  </section>
+
+  <div class="blur"></div>
+
+  <!-- 모달 -->
+  <div class="modal" id="contactModal">
+    <div class="modal-content">
+      <div>
+        <h2>Email</h2>
+        <p><a href="mailto:jeans@jeans-studio.com">jeans@jeans-studio.com</a></p>
+      </div>
+      <div>
+        <h2>LINE</h2>
+        <p>jeansstudio</p>
+      </div>
+      <div>
+        <h2>Instagram</h2>
+        <p><a href="https://www.instagram.com/jo_won_jean/">@jo_won_jean</a></p>
+      </div>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('contactModal');
+    const openButton = document.getElementById('openModal');
+
+    openButton.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
